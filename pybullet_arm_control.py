@@ -24,7 +24,29 @@ class RobotArmController:
         
         # 設置模擬參數
         self.use_realtime = False  # 不使用實時模擬
+
     
+    def set_all_joints_to_90_degrees(self):
+        """將每個關節設置到90度"""
+        target_angle_degrees = 90
+        target_angle_radians = np.radians(target_angle_degrees)
+        
+        # 設置每個關節到目標角度
+        for joint_index in range(p.getNumJoints(self.robot_id)):
+            self.set_joint_angle(joint_index, target_angle_radians)
+
+    def set_joint_angle(self, joint_index, angle):
+        """直接設置指定關節的角度"""
+        print(f"\n設置關節 {joint_index} 的角度為 {np.degrees(angle):.1f} 度")
+        
+        # 使用 resetJointState 直接設置角度
+        p.resetJointState(self.robot_id, joint_index, angle)
+        
+        # 立即更新模擬
+        p.stepSimulation()
+        time.sleep(1./240.)  # 控制模擬速度
+
+
     def setup_environment(self):
         """設置模擬環境"""
         # 設置重力
@@ -199,18 +221,17 @@ def main():
     try:
         # 創建控制器
         controller = RobotArmController()
-        
-        # 等待用戶確認初始位置
-        input("\n機器人已移動到原點，按 Enter 開始 IK 測試...")
-        
-        # 設置目標位置（相對於原點的位置）
-        target_position = [0.1, 0.0, 0.1]
-        
-        # 移動到目標位置
-        controller.move_to_target(target_position)
-        
-        # 等待用戶確認
-        input("\n按 Enter 結束程式...")
+        controller.set_all_joints_to_90_degrees()
+        # 提示用戶輸入角度
+        # while 1:
+        #     angle_degrees = float(input("請輸入第0軸的角度（度）: "))
+        #     angle_radians = np.radians(angle_degrees)
+            
+        #     # 設置第0軸到用戶指定的角度
+        #     controller.set_joint_angle(0, angle_radians)
+            
+        #     # 等待用戶確認初始位置
+        input("\n機器人已移動到指定角度，按 Enter 繼續...")
         
         # 清理資源
         controller.cleanup()
