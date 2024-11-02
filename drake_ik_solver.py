@@ -30,7 +30,7 @@ class RobotArmIK:
         
         # 創建多體系統和場景圖
         self.plant, self.scene_graph = AddMultibodyPlantSceneGraph(
-            self.builder, time_step=0.001)
+            self.builder, time_step=0.0)
         
         # 創建解析器並載入URDF
         self.parser = Parser(self.plant)
@@ -62,10 +62,10 @@ class RobotArmIK:
             current_position = current_pose.translation()
             print(f"移動前機器人位置 (米): {current_position}")
             
-            # 創建新的變換 - 移動到原點
+            # 創建新的變換 - 移動到世界座標原點
             new_transform = RigidTransform(
                 R=RotationMatrix(),
-                p=np.array([-2.0, -1.0, 0.0])  # 向左和向後移動到原點
+                p=np.array([0.0, 0.0, 0.0])  # 直接設置到世界座標原點
             )
             
             # 應用新位置
