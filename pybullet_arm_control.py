@@ -36,7 +36,7 @@ class RobotArmController:
             self.set_joint_angle(joint_index, target_angle_radians)
 
     def set_joint_angle(self, joint_index, angle):
-        """直接設置指定關節的角度"""
+        """直設置指定關節的角度"""
         print(f"\n設置關節 {joint_index} 的角度為 {np.degrees(angle):.1f} 度")
         
         # 使用 resetJointState 直接設置角度
@@ -74,10 +74,7 @@ class RobotArmController:
         urdf_path = os.path.abspath("./excurate_arm/target.urdf")
         print(f"載入 URDF: {urdf_path}")
         
-        # 計算當前位置的偏移
-        current_pos = [-2.9894948, -0.67663768, -0.16010566]  # 根據之前的位置設置偏移
-        
-        # 載入機器人並設置位置
+
         robot_id = p.loadURDF(
             urdf_path,
             basePosition=[0, 0, 0],  # 先設置在原點
@@ -175,6 +172,13 @@ class RobotArmController:
             print("\nIK 求解成功!")
             print(f"目標關節角度（度）: {np.degrees(joint_poses)}")
             
+            # Convert joint_poses to a list to allow modification
+            joint_poses = list(joint_poses)
+            
+            # 確保最後兩個關節角度相同
+            if len(joint_poses) >= 2:
+                joint_poses[-1] = joint_poses[-2] = joint_poses[-1]  # 設置最後兩個關節角度相同
+            
             # 獲取當前關節角度
             current_joints = self.get_joint_states()
             
@@ -222,15 +226,16 @@ def main():
         # 創建控制器
         controller = RobotArmController()
         controller.set_all_joints_to_90_degrees()
-        # 提示用戶輸入角度
-        # while 1:
-        #     angle_degrees = float(input("請輸入第0軸的角度（度）: "))
-        #     angle_radians = np.radians(angle_degrees)
-            
-        #     # 設置第0軸到用戶指定的角度
-        #     controller.set_joint_angle(0, angle_radians)
-            
-        #     # 等待用戶確認初始位置
+        target_position = [0.1, 0.0, 0.2]
+        success = controller.move_to_target(target_position)
+        # for i in range(50): 
+        #     z = 0.2 + 0.1 * i
+        #     target_position = [0.1, 0.0, z]
+        #     success = controller.move_to_target(target_position)
+        #     if success:
+        #         print("\n移動到指定位置成功!")
+        #     else:
+        #         print("\n移動到指定位置失敗!")
         input("\n機器人已移動到指定角度，按 Enter 繼續...")
         
         # 清理資源
