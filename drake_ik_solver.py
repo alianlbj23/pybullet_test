@@ -48,40 +48,48 @@ class RobotArmIK:
         self.simulator = Simulator(self.diagram)
         self.context = self.simulator.get_mutable_context()
         
+        # 保存重要的引用
+        self.plant_context = self.diagram.GetMutableSubsystemContext(
+            self.plant, self.context)
+        self.base_body = self.plant.GetBodyByName("base_link")
+        
+        # 初始化模擬器
+        self.simulator.Initialize()
+        
         try:
-            # 初始化模擬器
-            self.simulator.Initialize()
+            # 獲取當前位置
+            current_pose = self.plant.GetFreeBodyPose(self.plant_context, self.base_body)
+            current_position = current_pose.translation()
+            print(f"移動前機器人位置 (米): {current_position}")
             
-            # 獲取 plant context
-            plant_context = self.diagram.GetMutableSubsystemContext(
-                self.plant, self.context)
+            # 創建新的變換 - 移動到原點
+            new_transform = RigidTransform(
+                R=RotationMatrix(),
+                p=np.array([-2.0, -1.0, 0.0])  # 向左和向後移動到原點
+            )
             
-            # 獲取所有位置的數量
-            num_positions = self.plant.num_positions()
-            
-            # 創建初始位置向量
-            # 前7個值通常是基座的位置和方向（位置xyz + 四元數wxyz）
-            desired_positions = np.zeros(num_positions)
-            if num_positions >= 7:
-                # 設置一個有效的四元數 (w=1, x=0, y=0, z=0 表示無旋轉)
-                desired_positions[3] = 1.0  # w component of quaternion
-            
-            # 設置位置
-            self.plant.SetPositions(plant_context, desired_positions)
+            # 應用新位置
+            self.plant.SetFreeBodyPose(self.plant_context, self.base_body, new_transform)
             
             # 更新視覺化
             self.simulator.AdvanceTo(0.0)
+            visualizer_context = self.diagram.GetSubsystemContext(
+                self.visualizer, self.context)
+            self.visualizer.ForcedPublish(visualizer_context)
             
-            # 確認新位置
-            current_positions = self.plant.GetPositions(plant_context)
-            print(f"機器人位置: {current_positions}")
+            # 獲取更新後的位置
+            updated_pose = self.plant.GetFreeBodyPose(self.plant_context, self.base_body)
+            print(f"移動後機器人位置 (米): {updated_pose.translation()}")
             
         except Exception as e:
-            print(f"警告：{str(e)}")
+            print(f"計算時發生錯誤: {str(e)}")
 
-if __name__ == "__main__":
+def main():
     # 創建機器人控制器實例
     robot = RobotArmIK()
     
     # 保持程序運行
     input("按Enter鍵結束...")
+
+if __name__ == "__main__":
+    main()
