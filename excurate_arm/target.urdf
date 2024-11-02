@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="angle_excurate_arm_ver2">
+  <link name="world"/>
+  <joint name="floating_base" type="floating">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
   <material name="silver">
     <color rgba="0.700 0.700 0.700 1.000" />
   </material>
