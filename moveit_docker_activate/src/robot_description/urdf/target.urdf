@@ -4,6 +4,12 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="angle_excurate_arm_ver2">
+  <link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
   <material name="silver">
     <color rgba="0.700 0.700 0.700 1.000"/>
   </material>
@@ -115,7 +121,7 @@
   </gazebo>
   <link name="base_link">
     <inertial>
-      <origin xyz="2.9893753740438394 1.116432904659099 0.029849440895135016" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="1.6067306789990348"/>
       <inertia ixx="0.003521" iyy="0.006468" izz="0.008802" ixy="0.0" iyz="-0.0" ixz="0.0"/>
     </inertial>
