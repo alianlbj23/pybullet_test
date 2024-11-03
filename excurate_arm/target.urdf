@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="angle_excurate_arm_ver2">
-  <link name="world"/>
-  <joint name="floating_base" type="floating">
-    <parent link="world"/>
-    <child link="base_link"/>
-  </joint>
+  
   <material name="silver">
     <color rgba="0.700 0.700 0.700 1.000" />
   </material>
@@ -114,9 +110,12 @@
     <mu2>0.2</mu2>
     <selfCollide>true</selfCollide>
   </gazebo>
+  <link name="world">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </link>
   <link name="base_link">
     <inertial>
-      <origin xyz="2.9893753740438394 1.116432904659099 0.029849440895135016" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <mass value="1.6067306789990348" />
       <inertia ixx="0.003521" iyy="0.006468" izz="0.008802" ixy="0.0" iyz="-0.0" ixz="0.0" />
     </inertial>
@@ -254,6 +253,11 @@
       </geometry>
     </collision>
   </link>
+  <joint name="world_to_base" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
   <joint name="Revolute 1" type="revolute">
     <origin xyz="2.989375 1.116433 0.075907" rpy="0 0 0" />
     <parent link="base_link" />
