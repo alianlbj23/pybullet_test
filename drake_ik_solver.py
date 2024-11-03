@@ -20,16 +20,71 @@ import webbrowser
 
 class RobotArmIK:
     def __init__(self):
+        # 初始化基本系統
+        self._initialize_system()
+        
+        # 先進行部分初始化以獲取位置
+        self.plant.Finalize()
+        self.diagram = self.builder.Build()
+        self.simulator = Simulator(self.diagram)
+        self.context = self.simulator.get_mutable_context()
+        self.plant_context = self.diagram.GetMutableSubsystemContext(
+            self.plant, self.context)
+        
+        # 獲取末端執行器
+        self.end_effector = self.plant.GetBodyByName("base_link2_v2_1")
+        
+        # 獲取末端執行器的當前位置
+        current_pose = self.plant.EvalBodyPoseInWorld(
+            self.plant_context, self.end_effector)
+        current_position = current_pose.translation()
+        print(f"末端執行器當前位置: {current_position}")
+        
+        # 重新創建系統以應用位移
+        self._recreate_system()
+        
+        # 設置偏移量，但 Z 軸保持為 0
+        offset = [-current_position[0],  # X 軸取負
+                 -current_position[1],   # Y 軸取負
+                 0]                      # Z 軸設為 0
+        
+        X_offset = RigidTransform(p=offset)
+        print(f"設定偏移量: {X_offset.translation()}")
+        
+        # 現在可以安全地進行焊接
+        self.plant.WeldFrames(
+            self.world_frame,
+            self.plant.GetFrameByName("base_link"),
+            X_offset
+        )
+        
+        # 完成最終初始化
+        self._complete_initialization()
+
+    def _initialize_system(self):
+        """初始化基本系統和組件"""
         # 啟動 Meshcat 視覺化服務器
         self.meshcat = StartMeshcat()
-        
-        # 自動打開瀏覽器
         webbrowser.open(self.meshcat.web_url())
-        
-        # 清除之前的視覺化
         self.meshcat.Delete()
-        
         print(f"Meshcat URL: {self.meshcat.web_url()}")
+        
+        # 添加目標方塊
+        self.meshcat.SetObject(
+            "/target_marker",
+            Box(0.1, 0.1, 0.1),        # 方塊大小 (10cm x 10cm x 10cm)
+            Rgba(1.0, 0.0, 0.0, 0.8)   # 紅色，半透明
+        )
+        
+        # 設置方塊初始位置
+        target_position = [0.0, 0.0, 0.0]  # 可以根據需要調整
+        self.meshcat.SetTransform(
+            "/target_marker",
+            RigidTransform(p=target_position)
+        )
+        
+        # 打印方塊位置
+        print(f"目標方塊位置: {target_position}")
         
         # 創建系統圖
         self.builder = DiagramBuilder()
@@ -45,20 +100,27 @@ class RobotArmIK:
         self.parser = Parser(self.plant)
         self.model_instance = self.parser.AddModels("excurate_arm/target.urdf")[0]
         
-        # 在 Finalize 之前添加固定約束
-        world_frame = self.plant.world_frame()
-        base_frame = self.plant.GetFrameByName("base_link")
-        
-        # 使用 WeldFrames 而不是 AddWeld
-        self.plant.WeldFrames(
-            world_frame,  # 父框架（世界坐標系）
-            base_frame,   # 子框架（機器人基座）
-            RigidTransform()  # 身份變換（保持在原點）
-        )
-        
+        # 獲取必要的 frame 和 body
+        self.world_frame = self.plant.world_frame()
+        self.base_body = self.plant.GetBodyByName("base_link")
+
+    def _recreate_system(self):
+        """重新創建系統"""
+        self.builder = DiagramBuilder()
+        self.plant, self.scene_graph = AddMultibodyPlantSceneGraph(
+            self.builder, time_step=0.0)
+        self.plant.mutable_gravity_field().set_gravity_vector([0, 0, 0])
+        self.parser = Parser(self.plant)
+        self.model_instance = self.parser.AddModels("excurate_arm/target.urdf")[0]
+        self.world_frame = self.plant.world_frame()
+        self.base_body = self.plant.GetBodyByName("base_link")
+
+    def _complete_initialization(self):
+        """完成剩餘的初始化步驟"""
+        # 完成系統設置
         self.plant.Finalize()
         
-        # 添加視覺化器並獲取其實例
+        # 添加視覺化器
         self.visualizer = MeshcatVisualizer.AddToBuilder(
             self.builder, self.scene_graph, self.meshcat)
         
@@ -68,31 +130,19 @@ class RobotArmIK:
         # 創建模擬器
         self.simulator = Simulator(self.diagram)
         self.context = self.simulator.get_mutable_context()
-        
-        # 保存重要的引用
         self.plant_context = self.diagram.GetMutableSubsystemContext(
             self.plant, self.context)
-        self.base_body = self.plant.GetBodyByName("base_link")
         self.end_effector = self.plant.GetBodyByName("robot_ver7_grap1_2_v1_1")
         
         # 初始化模擬器
         self.simulator.Initialize()
         
-        try:
-            # 設置所有關節的初始位置為0
-            num_positions = self.plant.num_positions()
-            initial_positions = np.zeros(num_positions)
-            self.plant.SetPositions(self.plant_context, self.model_instance, initial_positions)
-            
-            # 更新視覺化
-            self.simulator.AdvanceTo(0.0)
-            visualizer_context = self.diagram.GetSubsystemContext(
-                self.visualizer, self.context)
-            self.visualizer.ForcedPublish(visualizer_context)
-            
-        except Exception as e:
-            print(f"初始化時發生錯誤: {str(e)}")
-        
+        # 更新視覺化
+        self.simulator.AdvanceTo(0.0)
+        visualizer_context = self.diagram.GetSubsystemContext(
+            self.visualizer, self.context)
+        self.visualizer.ForcedPublish(visualizer_context)
+
     def solve_ik(self, target_position, target_rotation=None):
         """
         解算逆運動學
@@ -118,6 +168,9 @@ class RobotArmIK:
                 RigidTransform(p=target_position)
             )
             
+            # 打印方塊位置
+            print(f"目標方塊位置: {target_position}")
+            
             # 創建 IK 求解器
             ik = InverseKinematics(self.plant, self.plant_context)
             
@@ -125,7 +178,7 @@ class RobotArmIK:
             end_frame = self.plant.GetFrameByName("robot_ver7_grap1_2_v1_1")
             world_frame = self.plant.world_frame()
             
-            # 打印當前位置
+            # 印當前位置
             current_pose = self.plant.EvalBodyPoseInWorld(
                 self.plant_context, self.end_effector)
             print(f"當前位置: {current_pose.translation()}")
@@ -192,7 +245,7 @@ class RobotArmIK:
             
             print(f"目標位置: {target_position}")
             print(f"實際位置: {actual_position}")
-            print(f"關節角度解: {q}")
+            print(f"關節��度解: {q}")
             
             return True, q
             
@@ -205,7 +258,7 @@ def main():
     robot = RobotArmIK()
     
     # 測試 IK 求解 - 使用更小的目標位置值
-    target_pos = [0.0, 0.0, 0.0]  # 設置一個更近的目標位置
+    target_pos = [0.1, 0.1, 0.1]  # 設置一個更近的目標位置
     success, joint_angles = robot.solve_ik(target_pos)
     
     if success:
