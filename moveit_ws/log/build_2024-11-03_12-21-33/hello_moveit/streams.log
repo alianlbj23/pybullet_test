@@ -1,0 +1,59 @@
+[0.011s] Invoking command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake /home/user/workspace/pyrobot/moveit_ws/src/hello_moveit -DCMAKE_INSTALL_PREFIX=/home/user/workspace/pyrobot/moveit_ws/install/hello_moveit
+[0.018s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.098s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.103s] -- Found moveit_ros_planning_interface: 2.5.5 (/home/user/workspace/ws_moveit2/install/moveit_ros_planning_interface/share/moveit_ros_planning_interface/cmake)
+[0.111s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[0.207s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.208s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.212s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.221s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.231s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.353s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[0.715s] -- Found parameter_traits: 0.3.8 (/opt/ros/humble/share/parameter_traits/cmake)
+[0.735s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.739s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.735s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.765s] -- Found rclcpp_lifecycle: 16.0.10 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[3.779s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[4.600s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[4.618s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[5.527s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[5.554s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[5.569s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[5.595s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.644s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.644s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/user/workspace/pyrobot/moveit_ws/src/hello_moveit/include>
+[5.644s] -- Configured cppcheck exclude dirs and/or files: 
+[5.644s] -- Added test 'lint_cmake' to check CMake code style
+[5.645s] -- Added test 'uncrustify' to check C / C++ code style
+[5.645s] -- Configured uncrustify additional arguments: 
+[5.645s] -- Added test 'xmllint' to check XML markup files
+[5.646s] -- Configuring done
+[5.662s] -- Generating done
+[5.664s] -- Build files have been written to: /home/user/workspace/pyrobot/moveit_ws/build/hello_moveit
+[5.672s] Invoked command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake /home/user/workspace/pyrobot/moveit_ws/src/hello_moveit -DCMAKE_INSTALL_PREFIX=/home/user/workspace/pyrobot/moveit_ws/install/hello_moveit
+[5.674s] Invoking command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_ws/build/hello_moveit -- -j16 -l16
+[5.706s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[5.722s] [ 50%] [32m[1mLinking CXX executable hello_moveit[0m
+[6.228s] [100%] Built target hello_moveit
+[6.237s] Invoked command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_ws/build/hello_moveit -- -j16 -l16
+[6.266s] Invoking command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_ws/build/hello_moveit
+[6.271s] -- Install configuration: ""
+[6.271s] -- Execute custom install script
+[6.271s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/lib/hello_moveit/hello_moveit
+[6.271s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/ament_index/resource_index/package_run_dependencies/hello_moveit
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/ament_index/resource_index/parent_prefix_path/hello_moveit
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.sh
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.dsv
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/environment/path.sh
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/environment/path.dsv
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/local_setup.bash
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/local_setup.sh
+[6.272s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/local_setup.zsh
+[6.273s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/local_setup.dsv
+[6.273s] -- Symlinking: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/package.dsv
+[6.279s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/ament_index/resource_index/packages/hello_moveit
+[6.279s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig.cmake
+[6.279s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig-version.cmake
+[6.279s] -- Up-to-date symlink: /home/user/workspace/pyrobot/moveit_ws/install/hello_moveit/share/hello_moveit/package.xml
+[6.280s] Invoked command in '/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_module_example:/home/user/workspace/pyrobot/moveit2_ws/install/moveit_configs_utils:/home/user/workspace/pyrobot/moveit2_ws/install/generate_parameter_library_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_ws/build/hello_moveit

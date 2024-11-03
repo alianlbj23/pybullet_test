@@ -1,0 +1,112 @@
+[0.538s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/src/pros_car_py': PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pros_car_py build --build-base /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build install --record /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/install.log --single-version-externally-managed install_data
+[0.693s] running egg_info
+[0.694s] creating ../../build/pros_car_py/pros_car_py.egg-info
+[0.697s] writing ../../build/pros_car_py/pros_car_py.egg-info/PKG-INFO
+[0.697s] writing dependency_links to ../../build/pros_car_py/pros_car_py.egg-info/dependency_links.txt
+[0.697s] writing entry points to ../../build/pros_car_py/pros_car_py.egg-info/entry_points.txt
+[0.697s] writing requirements to ../../build/pros_car_py/pros_car_py.egg-info/requires.txt
+[0.697s] writing top-level names to ../../build/pros_car_py/pros_car_py.egg-info/top_level.txt
+[0.697s] writing manifest file '../../build/pros_car_py/pros_car_py.egg-info/SOURCES.txt'
+[0.699s] reading manifest file '../../build/pros_car_py/pros_car_py.egg-info/SOURCES.txt'
+[0.699s] adding license file 'LICENSE'
+[0.700s] writing manifest file '../../build/pros_car_py/pros_car_py.egg-info/SOURCES.txt'
+[0.700s] running build
+[0.700s] running build_py
+[0.700s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build
+[0.700s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib
+[0.700s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/car_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/arm_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/ros_communicator_config.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/ros_communicator.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/arm_test.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/drake_ik_solver.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/env.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.701s] copying pros_car_py/joint_config.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/arm_writer.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/nav_processing.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/arm_reader.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/main.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/keyboard_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/carC_serial_writer.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/__init__.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/custom_control.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/data_processor.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.702s] copying pros_car_py/carC_serial_reader.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.703s] copying pros_car_py/nav2_utils.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.703s] copying pros_car_py/pybullet_ik_solver.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.703s] copying pros_car_py/car_models.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py
+[0.703s] running install
+[0.703s] running install_lib
+[0.704s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.704s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/car_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.704s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/arm_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.704s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/ros_communicator_config.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.704s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/ros_communicator.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.704s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/arm_test.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/drake_ik_solver.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/env.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/joint_config.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/arm_writer.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/nav_processing.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/arm_reader.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/main.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/keyboard_controller.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/carC_serial_writer.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.705s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/__init__.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/custom_control.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/data_processor.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/carC_serial_reader.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/nav2_utils.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/pybullet_ik_solver.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build/lib/pros_car_py/car_models.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py
+[0.706s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/car_controller.py to car_controller.cpython-310.pyc
+[0.706s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/arm_controller.py to arm_controller.cpython-310.pyc
+[0.707s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/ros_communicator_config.py to ros_communicator_config.cpython-310.pyc
+[0.707s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/ros_communicator.py to ros_communicator.cpython-310.pyc
+[0.707s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/arm_test.py to arm_test.cpython-310.pyc
+[0.708s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/drake_ik_solver.py to drake_ik_solver.cpython-310.pyc
+[0.708s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/env.py to env.cpython-310.pyc
+[0.708s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/joint_config.py to joint_config.cpython-310.pyc
+[0.708s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/arm_writer.py to arm_writer.cpython-310.pyc
+[0.709s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/nav_processing.py to nav_processing.cpython-310.pyc
+[0.709s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/arm_reader.py to arm_reader.cpython-310.pyc
+[0.709s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/main.py to main.cpython-310.pyc
+[0.710s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/keyboard_controller.py to keyboard_controller.cpython-310.pyc
+[0.711s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/carC_serial_writer.py to carC_serial_writer.cpython-310.pyc
+[0.711s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/__init__.py to __init__.cpython-310.pyc
+[0.711s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/custom_control.py to custom_control.cpython-310.pyc
+[0.711s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/data_processor.py to data_processor.cpython-310.pyc
+[0.712s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/carC_serial_reader.py to carC_serial_reader.cpython-310.pyc
+[0.712s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/nav2_utils.py to nav2_utils.cpython-310.pyc
+[0.712s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/pybullet_ik_solver.py to pybullet_ik_solver.cpython-310.pyc
+[0.713s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py/car_models.py to car_models.cpython-310.pyc
+[0.714s] running install_data
+[0.714s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/ament_index
+[0.714s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/ament_index/resource_index
+[0.714s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/ament_index/resource_index/packages
+[0.715s] copying resource/pros_car_py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/ament_index/resource_index/packages
+[0.715s] copying package.xml -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py
+[0.715s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/urdf
+[0.715s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/urdf/excurate_arm
+[0.715s] copying urdf/target.urdf -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/urdf/excurate_arm
+[0.715s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/base_link2_v2_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/robot_ver7_grap2_2_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/robot_ver7_grap1_2_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/link4_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/base_link.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.716s] copying meshes/link3_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.717s] copying meshes/robot_ver7_link_4_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/share/pros_car_py/meshes
+[0.717s] running install_egg_info
+[0.718s] Copying ../../build/pros_car_py/pros_car_py.egg-info to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages/pros_car_py-0.0.0-py3.10.egg-info
+[0.718s] running install_scripts
+[0.732s] Installing arm_reader script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing arm_test script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] Installing arm_writer script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] Installing carC_reader script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] Installing carC_writer script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] Installing lidar_trans script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] Installing robot_control script to /home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/pros_car_py
+[0.733s] writing list of installed files to '/home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/install.log'
+[0.749s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/src/pros_car_py' returned '0': PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pros_car_py build --build-base /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/build install --record /home/user/workspace/pyrobot/moveit_docker_activate/build/pros_car_py/install.log --single-version-externally-managed install_data

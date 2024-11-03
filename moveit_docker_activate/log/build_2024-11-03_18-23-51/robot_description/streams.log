@@ -1,0 +1,43 @@
+[0.749s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/src/robot_description': PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build install --record /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/install.log --single-version-externally-managed install_data
+[0.927s] running egg_info
+[0.927s] creating ../../build/robot_description/robot_description.egg-info
+[0.928s] writing ../../build/robot_description/robot_description.egg-info/PKG-INFO
+[0.928s] writing dependency_links to ../../build/robot_description/robot_description.egg-info/dependency_links.txt
+[0.928s] writing entry points to ../../build/robot_description/robot_description.egg-info/entry_points.txt
+[0.928s] writing requirements to ../../build/robot_description/robot_description.egg-info/requires.txt
+[0.928s] writing top-level names to ../../build/robot_description/robot_description.egg-info/top_level.txt
+[0.928s] writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.929s] reading manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.930s] writing manifest file '../../build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.930s] running build
+[0.930s] running build_py
+[0.930s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build
+[0.931s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build/lib
+[0.931s] creating /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build/lib/robot_description
+[0.931s] copying robot_description/__init__.py -> /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build/lib/robot_description
+[0.931s] running install
+[0.932s] running install_lib
+[0.932s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages/robot_description
+[0.932s] copying /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build/lib/robot_description/__init__.py -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages/robot_description
+[0.933s] byte-compiling /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages/robot_description/__init__.py to __init__.cpython-310.pyc
+[0.933s] running install_data
+[0.933s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/ament_index
+[0.934s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/ament_index/resource_index
+[0.934s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/ament_index/resource_index/packages
+[0.934s] copying resource/robot_description -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/ament_index/resource_index/packages
+[0.935s] copying package.xml -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description
+[0.935s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/urdf
+[0.935s] copying urdf/target.urdf -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/urdf/
+[0.935s] creating /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.935s] copying meshes/base_link2_v2_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.935s] copying meshes/robot_ver7_grap2_2_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.935s] copying meshes/robot_ver7_grap1_2_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.935s] copying meshes/link4_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.936s] copying meshes/base_link.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.936s] copying meshes/link3_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.937s] copying meshes/robot_ver7_link_4_v1_1.stl -> /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/share/robot_description/meshes
+[0.937s] running install_egg_info
+[0.938s] Copying ../../build/robot_description/robot_description.egg-info to /home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages/robot_description-0.0.0-py3.10.egg-info
+[0.939s] running install_scripts
+[0.958s] writing list of installed files to '/home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/install.log'
+[0.976s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/src/robot_description' returned '0': PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/robot_description build --build-base /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/build install --record /home/user/workspace/pyrobot/moveit_docker_activate/build/robot_description/install.log --single-version-externally-managed install_data

@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  moveit2:
+    image: moveit/moveit2:humble-release
+    container_name: moveit2_container
+    environment:
+      - DISPLAY=${DISPLAY}
+    network_mode: host
+    privileged: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix # X11 socket for GUI
+    command: /bin/bash

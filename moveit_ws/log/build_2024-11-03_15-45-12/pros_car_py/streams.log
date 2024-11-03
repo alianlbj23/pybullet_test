@@ -1,0 +1,28 @@
+[0.556s] Invoking command in '/home/user/workspace/pyrobot/moveit_ws/src/pros_car_py': PYTHONPATH=/home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pros_car_py build --build-base /home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/build install --record /home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/install.log --single-version-externally-managed install_data
+[0.706s] running egg_info
+[0.710s] writing ../../build/pros_car_py/pros_car_py.egg-info/PKG-INFO
+[0.710s] writing dependency_links to ../../build/pros_car_py/pros_car_py.egg-info/dependency_links.txt
+[0.710s] writing entry points to ../../build/pros_car_py/pros_car_py.egg-info/entry_points.txt
+[0.711s] writing requirements to ../../build/pros_car_py/pros_car_py.egg-info/requires.txt
+[0.711s] writing top-level names to ../../build/pros_car_py/pros_car_py.egg-info/top_level.txt
+[0.712s] reading manifest file '../../build/pros_car_py/pros_car_py.egg-info/SOURCES.txt'
+[0.712s] adding license file 'LICENSE'
+[0.713s] writing manifest file '../../build/pros_car_py/pros_car_py.egg-info/SOURCES.txt'
+[0.713s] running build
+[0.713s] running build_py
+[0.714s] running install
+[0.714s] running install_lib
+[0.715s] running install_data
+[0.715s] running install_egg_info
+[0.717s] removing '/home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/python3.10/site-packages/pros_car_py-0.0.0-py3.10.egg-info' (and everything under it)
+[0.717s] Copying ../../build/pros_car_py/pros_car_py.egg-info to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/python3.10/site-packages/pros_car_py-0.0.0-py3.10.egg-info
+[0.718s] running install_scripts
+[0.732s] Installing arm_reader script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing arm_test script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing arm_writer script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing carC_reader script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing carC_writer script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing lidar_trans script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.732s] Installing robot_control script to /home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/pros_car_py
+[0.733s] writing list of installed files to '/home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/install.log'
+[0.747s] Invoked command in '/home/user/workspace/pyrobot/moveit_ws/src/pros_car_py' returned '0': PYTHONPATH=/home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/user/workspace/pyrobot/moveit_ws/install/pros_car_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pros_car_py build --build-base /home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/build install --record /home/user/workspace/pyrobot/moveit_ws/build/pros_car_py/install.log --single-version-externally-managed install_data

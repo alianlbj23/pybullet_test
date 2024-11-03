@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: pros_car_py
+    relative_path: urdf/target.urdf
+  srdf:
+    relative_path: config/angle_excurate_arm_ver2.srdf
+  package_settings:
+    author_name: ""
+    author_email: ""
+    generated_timestamp: 1730622209

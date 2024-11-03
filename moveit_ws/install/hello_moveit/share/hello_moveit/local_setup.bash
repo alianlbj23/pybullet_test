@@ -1,0 +1,1 @@
+/home/user/workspace/pyrobot/moveit_ws/build/hello_moveit/ament_cmake_environment_hooks/local_setup.bash
