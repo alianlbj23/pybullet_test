@@ -1,0 +1,6 @@
+{
+  "package_name": "robot_arm_interfaces",
+  "non_idl_tuples": [
+    "/home/user/workspace/pyrobot/moveit_docker_activate/src/robot_arm_interfaces:srv/SolveIK.srv"
+  ]
+}

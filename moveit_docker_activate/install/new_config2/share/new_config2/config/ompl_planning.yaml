@@ -1,0 +1,12 @@
+planner_configs:
+  RRTConnect:
+    type: geometric::RRTConnect
+    range: 0.0  # Max motion added to tree. Set to 0.0 for automatic selection.
+    goal_bias: 0.05  # When close to goal, pick goal state with this probability
+
+arm:
+  planner_configs:
+    - RRTConnect
+  projection_evaluator: joints(Revolute 1,Revolute 2)
+  longest_valid_segment_fraction: 0.01
+  default_planner_config: RRTConnect 

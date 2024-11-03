@@ -1,0 +1,5 @@
+source;share/moveit2_robot_arm_control/local_setup.bash
+source;share/moveit2_robot_arm_control/local_setup.dsv
+source;share/moveit2_robot_arm_control/local_setup.ps1
+source;share/moveit2_robot_arm_control/local_setup.sh
+source;share/moveit2_robot_arm_control/local_setup.zsh

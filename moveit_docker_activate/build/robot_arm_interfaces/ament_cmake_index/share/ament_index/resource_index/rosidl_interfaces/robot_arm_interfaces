@@ -1,0 +1,4 @@
+srv/SolveIK.idl
+srv/SolveIK.srv
+srv/SolveIK_Request.msg
+srv/SolveIK_Response.msg

@@ -1,0 +1,61 @@
+[0.062s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/user/workspace/pyrobot/moveit_docker_activate/src/new_config3 -DCMAKE_INSTALL_PREFIX=/home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3
+[0.142s] -- The C compiler identification is GNU 11.4.0
+[0.358s] -- The CXX compiler identification is GNU 11.4.0
+[0.454s] -- Detecting C compiler ABI info
+[0.534s] -- Detecting C compiler ABI info - done
+[0.540s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.540s] -- Detecting C compile features
+[0.541s] -- Detecting C compile features - done
+[0.543s] -- Detecting CXX compiler ABI info
+[0.627s] -- Detecting CXX compiler ABI info - done
+[0.632s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.632s] -- Detecting CXX compile features
+[0.632s] -- Detecting CXX compile features - done
+[0.635s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.752s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.894s] -- Configuring done
+[0.898s] -- Generating done
+[0.899s] -- Build files have been written to: /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3
+[0.903s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3' returned '0': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/user/workspace/pyrobot/moveit_docker_activate/src/new_config3 -DCMAKE_INSTALL_PREFIX=/home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3
+[0.905s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3 -- -j16 -l16
+[0.932s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3' returned '0': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3 -- -j16 -l16
+[0.951s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3
+[0.956s] -- Install configuration: ""
+[0.957s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/ament_index/resource_index/package_run_dependencies/new_config3
+[0.957s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/ament_index/resource_index/parent_prefix_path/new_config3
+[0.958s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/environment/ament_prefix_path.sh
+[0.958s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/environment/ament_prefix_path.dsv
+[0.958s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/environment/path.sh
+[0.958s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/environment/path.dsv
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/local_setup.bash
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/local_setup.sh
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/local_setup.zsh
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/local_setup.dsv
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/package.dsv
+[0.959s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/ament_index/resource_index/packages/new_config3
+[0.960s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/cmake/new_config3Config.cmake
+[0.960s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/cmake/new_config3Config-version.cmake
+[0.960s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/package.xml
+[0.960s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/static_virtual_joint_tfs.launch.py
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/setup_assistant.launch.py
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/spawn_controllers.launch.py
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/demo.launch.py
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/moveit_rviz.launch.py
+[0.961s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/warehouse_db.launch.py
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/rsp.launch.py
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/launch/move_group.launch.py
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/angle_excurate_arm_ver2.urdf.xacro
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/ros2_controllers.yaml
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/moveit.rviz
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/moveit_controllers.yaml
+[0.963s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/kinematics.yaml
+[0.964s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/sensors_3d.yaml
+[0.965s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/pilz_cartesian_limits.yaml
+[0.966s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/joint_limits.yaml
+[0.966s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/angle_excurate_arm_ver2.srdf
+[0.966s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/initial_positions.yaml
+[0.967s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/config/angle_excurate_arm_ver2.ros2_control.xacro
+[0.967s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config3/share/new_config3/.setup_assistant
+[0.969s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3' returned '0': AMENT_PREFIX_PATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble PYTHONPATH=/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3

@@ -1,0 +1,9 @@
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/uninstall.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/new_config3_uninstall.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/test.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/edit_cache.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/rebuild_cache.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/list_install_components.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/install.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/install/local.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config3/CMakeFiles/install/strip.dir

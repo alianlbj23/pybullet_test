@@ -1,0 +1,10 @@
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/uninstall.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/moveit2_robot_arm_control_uninstall.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/ik_solver.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/test.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/edit_cache.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/rebuild_cache.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/list_install_components.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/install.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/install/local.dir
+/home/user/workspace/pyrobot/moveit_docker_activate/build/moveit2_robot_arm_control/CMakeFiles/install/strip.dir

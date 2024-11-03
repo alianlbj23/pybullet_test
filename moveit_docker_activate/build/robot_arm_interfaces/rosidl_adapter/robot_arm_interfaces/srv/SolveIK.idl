@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robot_arm_interfaces/srv/SolveIK.srv
+// generated code does not contain a copyright notice
+
+
+module robot_arm_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct SolveIK_Request {
+      double x;
+
+      double y;
+
+      double z;
+
+      double roll;
+
+      double pitch;
+
+      double yaw;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct SolveIK_Response {
+      boolean success;
+
+      sequence<double> joint_positions;
+
+      string message;
+    };
+  };
+};

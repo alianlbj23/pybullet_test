@@ -17,7 +17,7 @@ class RobotArmController:
         self.robot_id = self.load_robot()
         
         # 強制移動到原點
-        self.move_to_origin()
+        # self.move_to_origin()
         
         # 設置調試參數
         self.debug_mode = True
@@ -50,7 +50,7 @@ class RobotArmController:
     def setup_environment(self):
         """設置模擬環境"""
         # 設置重力
-        p.setGravity(0, 0, -9.81)
+        p.setGravity(0, 0, 0)
         
         # 載入地面
         p.loadURDF("plane.urdf")
@@ -163,8 +163,20 @@ class RobotArmController:
         
         return joint_poses
     
-    def move_to_target(self, target_position, steps=50):
+    def move_to_target(self, target_position, steps=100):
         """移動到目標位置"""
+        # 添加視覺標記（紅色方塊）
+        visual_shape_id = p.createVisualShape(
+            shapeType=p.GEOM_BOX,
+            halfExtents=[0.02, 0.02, 0.02],  # 方塊大小
+            rgbaColor=[1, 0, 0, 0.7]  # 紅色，稍微透明
+        )
+        target_marker = p.createMultiBody(
+            baseMass=0,  # 質量為0表示靜態物體
+            baseVisualShapeIndex=visual_shape_id,
+            basePosition=target_position
+        )
+
         # 求解 IK
         joint_poses = self.solve_ik(target_position)
         
@@ -226,7 +238,12 @@ def main():
         # 創建控制器
         controller = RobotArmController()
         controller.set_all_joints_to_90_degrees()
-        target_position = [0.1, 0.0, 0.2]
+        base_position, _ = p.getBasePositionAndOrientation(controller.robot_id)
+        print(f"基座位置: {base_position}")
+        relative_target_position = [-0.2, -0.3, 0.2]
+        target_position = [base_position[0] + relative_target_position[0],
+                   base_position[1] + relative_target_position[1],
+                   base_position[2] + relative_target_position[2]]
         success = controller.move_to_target(target_position)
         # for i in range(50): 
         #     z = 0.2 + 0.1 * i
