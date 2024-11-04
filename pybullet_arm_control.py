@@ -16,77 +16,146 @@ class RobotArmController:
         # 載入機器人
         self.robot_id = self.load_robot()
         
-        # 強制移動到原點
-        # self.move_to_origin()
-        
-        # 設置調試參數
-        self.debug_mode = True
-        
         # 設置模擬參數
         self.use_realtime = False  # 不使用實時模擬
 
-    
-    def set_all_joints_to_90_degrees(self):
-        """將每個關節設置到90度"""
-        target_angle_degrees = 90
-        target_angle_radians = np.radians(target_angle_degrees)
-        
-        # 設置每個關節到目標角度
-        for joint_index in range(p.getNumJoints(self.robot_id)):
-            self.set_joint_angle(joint_index, target_angle_radians)
-
-    def set_joint_angle(self, joint_index, angle):
-        """直設置指定關節的角度"""
-        print(f"\n設置關節 {joint_index} 的角度為 {np.degrees(angle):.1f} 度")
-        
-        # 使用 resetJointState 直接設置角度
-        p.resetJointState(self.robot_id, joint_index, angle)
-        
-        # 立即更新模擬
-        p.stepSimulation()
-        time.sleep(1./240.)  # 控制模擬速度
-
-
     def setup_environment(self):
         """設置模擬環境"""
-        # 設置重力
         p.setGravity(0, 0, 0)
-        
-        # 載入地面
         p.loadURDF("plane.urdf")
-        
-        # 設置相機，讓原點更容易看到
         p.resetDebugVisualizerCamera(
-            cameraDistance=1.0,  # 更近的視角
+            cameraDistance=1.0,
             cameraYaw=45,
             cameraPitch=-20,
-            cameraTargetPosition=[0, 0, 0]  # 對準原點
+            cameraTargetPosition=[0, 0, 0]
         )
-        
-        # 添加座標軸視覺化
-        p.addUserDebugLine([0, 0, 0], [0.2, 0, 0], [1, 0, 0])  # X軸 紅色
-        p.addUserDebugLine([0, 0, 0], [0, 0.2, 0], [0, 1, 0])  # Y軸 綠色
-        p.addUserDebugLine([0, 0, 0], [0, 0, 0.2], [0, 0, 1])  # Z軸 藍色
-    
+        p.addUserDebugLine([0, 0, 0], [0.2, 0, 0], [1, 0, 0])
+        p.addUserDebugLine([0, 0, 0], [0, 0.2, 0], [0, 1, 0])
+        p.addUserDebugLine([0, 0, 0], [0, 0, 0.2], [0, 0, 1])
+
     def load_robot(self):
         """載入機器人模型"""
-        # 獲取 URDF 路徑
         urdf_path = os.path.abspath("./excurate_arm/target.urdf")
         print(f"載入 URDF: {urdf_path}")
-        
-
         robot_id = p.loadURDF(
             urdf_path,
-            basePosition=[0, 0, 0],  # 先設置在原點
+            basePosition=[0, 0, 0],
             baseOrientation=p.getQuaternionFromEuler([0, 0, 0]),
             useFixedBase=True
         )
-        
-        # 打印關節信息
         self.print_joint_info(robot_id)
-        
         return robot_id
-    
+
+    def print_joint_info(self, robot_id):
+        """打印關節信息"""
+        num_joints = p.getNumJoints(robot_id)
+        for i in range(num_joints):
+            joint_info = p.getJointInfo(robot_id, i)
+            print(f"關節 {i}: {joint_info[1].decode('utf-8')}, 類型: {joint_info[2]}")
+            if joint_info[8] != joint_info[9]:
+                print(f"  限制: [{np.degrees(joint_info[8]):.1f}, {np.degrees(joint_info[9]):.1f}] 度")
+
+    def get_movable_joint_indices(self):
+        """獲取可移動關節的索引"""
+        return [i for i in range(p.getNumJoints(self.robot_id)) if p.getJointInfo(self.robot_id, i)[2] != p.JOINT_FIXED]
+
+    def solve_ik(self, target_position, target_orientation=None, damping=0.01):
+        """求解逆運動學"""
+        end_effector_name = "robot_ver7_link_4_v1_1"  # 替換為 URDF 中的末端執行器名稱
+        end_effector_index = self.get_link_index_by_name(end_effector_name)
+        target_orientation = target_orientation or p.getQuaternionFromEuler([0, 0, 0])
+
+        # 求解 IK，並設置阻尼
+        joint_damping = [damping] * p.getNumJoints(self.robot_id)
+        joint_poses = p.calculateInverseKinematics(
+            self.robot_id,
+            end_effector_index,
+            target_position,
+            target_orientation,
+            jointDamping=joint_damping,
+            maxNumIterations=200,  # Increase iterations
+            residualThreshold=1e-5
+        )
+        
+        # Debugging: Print joint poses
+        print(f"目標位置: {target_position}")
+        print(f"計算的關節角度（度）: {np.degrees(joint_poses)}")
+        
+        # 僅返回可動關節的角度
+        movable_joints = self.get_movable_joint_indices()
+        print("movable_joints:",movable_joints)
+        movable_joint_poses = [joint_poses[i] for i in movable_joints if i < len(joint_poses)]
+        # if len(movable_joint_poses) != len(movable_joints):
+        #     raise ValueError("逆運動學計算的關節角度數量不匹配可動關節數量")
+        
+        # Verify end effector position
+        p.setJointMotorControlArray(self.robot_id, movable_joints, p.POSITION_CONTROL, targetPositions=movable_joint_poses)
+        p.stepSimulation()
+        end_state = p.getLinkState(self.robot_id, end_effector_index)
+        print(f"計算的末端執行器位置: {end_state[0]}")
+        
+        return movable_joint_poses
+
+    def get_link_index_by_name(self, link_name):
+        """根據鏈結名稱獲取鏈結索引"""
+        num_joints = p.getNumJoints(self.robot_id)
+        for i in range(num_joints):
+            if p.getJointInfo(self.robot_id, i)[12].decode("utf-8") == link_name:
+                return i
+        raise ValueError(f"Link with name '{link_name}' not found.")
+
+    def move_to_target(self, target_position, steps=1000):
+        """移動到目標位置"""
+        # 添加視覺標記（紅色方塊）
+        visual_shape_id = p.createVisualShape(
+            shapeType=p.GEOM_BOX,
+            halfExtents=[0.02, 0.02, 0.02],  # 方塊大小
+            rgbaColor=[1, 0, 0, 0.7]  # 紅色，稍微透明
+        )
+        target_marker = p.createMultiBody(
+            baseMass=0,  # 質量為0表示靜態物體
+            baseVisualShapeIndex=visual_shape_id,
+            basePosition=target_position
+        )
+
+        # 求解 IK
+        joint_poses = self.solve_ik(target_position)
+        
+        if joint_poses is not None:
+            print("\nIK 求解成功!")
+            movable_joints = self.get_movable_joint_indices()
+            print("movable_joints:",movable_joints)
+            
+            # Debugging: Print lengths
+            print(f"可動關節數量: {len(movable_joints)}")
+            print(f"IK 求解關節角度數量: {len(joint_poses)}")
+            
+            # 逐步移動到目標位置
+            for step in range(steps + 1):
+                t = step / steps
+                for idx, joint_index in enumerate(movable_joints):
+                    if idx < len(joint_poses):  # Ensure index is within bounds
+                        angle = (1 - t) * p.getJointState(self.robot_id, joint_index)[0] + t * joint_poses[idx]
+                        p.setJointMotorControl2(
+                            self.robot_id,
+                            joint_index,
+                            p.POSITION_CONTROL,
+                            targetPosition=angle
+                        )
+                
+                # 更新模擬
+                p.stepSimulation()
+                time.sleep(1./240.)  # 控制模擬速度
+                
+                # 打印進度
+                if step % 10 == 0:
+                    print(f"\n步驟 {step}/{steps}")
+                    end_state = p.getLinkState(self.robot_id, movable_joints[-1])
+                    print(f"當前位置: {end_state[0]}")
+            
+            return True
+        return False
+
     def move_to_origin(self):
         """強制移動機器人到原點"""
         print("\n正在移動機器人到原點...")
@@ -110,159 +179,21 @@ class RobotArmController:
         # 重置所有關節到零位
         for i in range(p.getNumJoints(self.robot_id)):
             p.resetJointState(self.robot_id, i, 0)
-    
-    def print_joint_info(self, robot_id):
-        """打印關節信息"""
-        print("\n關節信息:")
-        num_joints = p.getNumJoints(robot_id)
-        for i in range(num_joints):
-            joint_info = p.getJointInfo(robot_id, i)
-            print(f"關節 {i}: {joint_info[1].decode('utf-8')}")
-            print(f"  類型: {joint_info[2]}")
-            if joint_info[8] != joint_info[9]:  # 如果有關節限制
-                print(f"  限制: [{np.degrees(joint_info[8]):.1f}, {np.degrees(joint_info[9]):.1f}] 度")
-            else:
-                print("  無限制")
-            # 打印當前位置
-            state = p.getJointState(robot_id, i)
-            print(f"  當前角度: {np.degrees(state[0]):.1f} 度")
-    
-    def get_joint_states(self):
-        """獲取所有關節狀態"""
-        joint_states = []
-        for i in range(p.getNumJoints(self.robot_id)):
-            state = p.getJointState(self.robot_id, i)
-            joint_states.append(state[0])
-        return joint_states
-    
-    def solve_ik(self, target_position, target_orientation=None):
-        """求解逆運動學"""
-        print(f"\n開始 IK 求解...")
-        print(f"目標位置: {target_position}")
-        
-        # 設置末端執行器索引
-        end_effector_index = 5  # 需要根據實際機器人調整
-        
-        # 如果沒有指定方向，使用默認方向
-        if target_orientation is None:
-            target_orientation = p.getQuaternionFromEuler([0, 0, 0])
-        
-        # 獲取當前狀態
-        current_joints = self.get_joint_states()
-        print(f"當前關節角度（度）: {np.degrees(current_joints)}")
-        
-        # 求解 IK
-        joint_poses = p.calculateInverseKinematics(
-            self.robot_id,
-            end_effector_index,
-            target_position,
-            target_orientation,
-            maxNumIterations=100,
-            residualThreshold=1e-5
-        )
-        
-        return joint_poses
-    
-    def move_to_target(self, target_position, steps=100):
-        """移動到目標位置"""
-        # 添加視覺標記（紅色方塊）
-        visual_shape_id = p.createVisualShape(
-            shapeType=p.GEOM_BOX,
-            halfExtents=[0.02, 0.02, 0.02],  # 方塊大小
-            rgbaColor=[1, 0, 0, 0.7]  # 紅色，稍微透明
-        )
-        target_marker = p.createMultiBody(
-            baseMass=0,  # 質量為0表示靜態物體
-            baseVisualShapeIndex=visual_shape_id,
-            basePosition=target_position
-        )
 
-        # 求解 IK
-        joint_poses = self.solve_ik(target_position)
-        
-        if joint_poses is not None:
-            print("\nIK 求解成功!")
-            print(f"目標關節角度（度）: {np.degrees(joint_poses)}")
-            
-            # Convert joint_poses to a list to allow modification
-            joint_poses = list(joint_poses)
-            
-            # 確保最後兩個關節角度相同
-            if len(joint_poses) >= 2:
-                joint_poses[-1] = joint_poses[-2] = joint_poses[-1]  # 設置最後兩個關節角度相同
-            
-            # 獲取當前關節角度
-            current_joints = self.get_joint_states()
-            
-            # 逐步移動到目標位置
-            for step in range(steps + 1):
-                # 計算插值
-                t = step / steps
-                for i in range(len(joint_poses)):
-                    angle = current_joints[i] + t * (joint_poses[i] - current_joints[i])
-                    p.setJointMotorControl2(
-                        self.robot_id,
-                        i,
-                        p.POSITION_CONTROL,
-                        targetPosition=angle
-                    )
-                
-                # 更新模擬
-                p.stepSimulation()
-                time.sleep(1./240.)  # 控制模擬速度
-                
-                # 打印進度
-                if step % 10 == 0:
-                    print(f"\n步驟 {step}/{steps}")
-                    end_state = p.getLinkState(self.robot_id, 5)
-                    print(f"當前位置: {end_state[0]}")
-                    current_angles = self.get_joint_states()
-                    print(f"當前關節角度（度）: {np.degrees(current_angles)}")
-            
-            # 驗證最終位置
-            end_state = p.getLinkState(self.robot_id, 5)
-            final_position = end_state[0]
-            error = np.linalg.norm(np.array(target_position) - np.array(final_position))
-            print(f"\n最終位置: {final_position}")
-            print(f"位置誤差: {error:.6f} 米")
-            
-            return True
-        return False
-    
     def cleanup(self):
         """清理資源"""
         p.disconnect()
 
 def main():
-    try:
-        # 創建控制器
-        controller = RobotArmController()
-        controller.set_all_joints_to_90_degrees()
-        base_position, _ = p.getBasePositionAndOrientation(controller.robot_id)
-        print(f"基座位置: {base_position}")
-        relative_target_position = [-0.2, -0.3, 0.2]
-        target_position = [base_position[0] + relative_target_position[0],
-                   base_position[1] + relative_target_position[1],
-                   base_position[2] + relative_target_position[2]]
-        success = controller.move_to_target(target_position)
-        # for i in range(50): 
-        #     z = 0.2 + 0.1 * i
-        #     target_position = [0.1, 0.0, z]
-        #     success = controller.move_to_target(target_position)
-        #     if success:
-        #         print("\n移動到指定位置成功!")
-        #     else:
-        #         print("\n移動到指定位置失敗!")
-        input("\n機器人已移動到指定角度，按 Enter 繼續...")
-        
-        # 清理資源
-        controller.cleanup()
-        
-    except Exception as e:
-        print(f"\n發生錯誤: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        p.disconnect()
+    controller = RobotArmController()
+    controller.move_to_origin()
+    target_position = [-0.2, -0.3, 0.2]
+    success = controller.move_to_target(target_position)
+    if success:
+        print("\n移動到指定位置成功!")
+    else:
+        print("\n移動到指定位置失敗!")
+    controller.cleanup()
 
 if __name__ == "__main__":
     main()

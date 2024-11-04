@@ -1,0 +1,38 @@
+[0.191s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config -- -j16 -l16
+[0.354s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config -- -j16 -l16
+[0.375s] Invoking command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config
+[0.380s] -- Install configuration: ""
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/ament_index/resource_index/package_run_dependencies/new_config
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/ament_index/resource_index/parent_prefix_path/new_config
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/environment/ament_prefix_path.sh
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/environment/ament_prefix_path.dsv
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/environment/path.sh
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/environment/path.dsv
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/local_setup.bash
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/local_setup.sh
+[0.381s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/local_setup.zsh
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/local_setup.dsv
+[0.382s] -- Installing: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/package.dsv
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/ament_index/resource_index/packages/new_config
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/cmake/new_configConfig.cmake
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/cmake/new_configConfig-version.cmake
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/package.xml
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/static_virtual_joint_tfs.launch.py
+[0.382s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/setup_assistant.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/spawn_controllers.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/demo.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/moveit_rviz.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/warehouse_db.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/rsp.launch.py
+[0.383s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/launch/move_group.launch.py
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/ros2_controllers.yaml
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/moveit.rviz
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/moveit_controllers.yaml
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/kinematics.yaml
+[0.384s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/pilz_cartesian_limits.yaml
+[0.385s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/joint_limits.yaml
+[0.385s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/config/angle_excurate_arm_ver2.srdf
+[0.385s] -- Up-to-date: /home/user/workspace/pyrobot/moveit_docker_activate/install/new_config/share/new_config/.setup_assistant
+[0.385s] Invoked command in '/home/user/workspace/pyrobot/moveit_docker_activate/build/new_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace/pyrobot/moveit_docker_activate/install/robot_description:/home/user/workspace/pyrobot/moveit_docker_activate/install/pros_car_py:/home/user/workspace/ws_moveit2/install/moveit_configs_utils:/home/user/workspace/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/user/workspace/pyrobot/moveit_docker_activate/build/new_config

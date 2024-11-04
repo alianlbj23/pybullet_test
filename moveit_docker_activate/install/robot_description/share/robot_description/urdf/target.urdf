@@ -4,6 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="angle_excurate_arm_ver2">
+  
   <material name="silver">
     <color rgba="0.700 0.700 0.700 1.000"/>
   </material>
@@ -115,7 +116,7 @@
   </gazebo>
   <link name="base_link">
     <inertial>
-      <origin xyz="2.9893753740438394 1.116432904659099 0.029849440895135016" rpy="0 0 0"/>
+      <origin xyz="3.7404378527838844e-07 7.073274099766991e-08 0.04484445545928446" rpy="0 0 0"/>
       <mass value="1.6067306789990348"/>
       <inertia ixx="0.003521" iyy="0.006468" izz="0.008802" ixy="0.0" iyz="-0.0" ixz="0.0"/>
     </inertial>
@@ -254,7 +255,8 @@
     </collision>
   </link>
   <joint name="Revolute 1" type="revolute">
-    <origin xyz="2.989375 1.116433 0.075907" rpy="0 0 0"/>
+    <!-- <origin xyz="2.989375 1.116433 0.075907" rpy="0 0 0"/> -->
+    <origin xyz="0.0 0.0 0.075907" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="base_link2_v2_1"/>
     <axis xyz="-0.0 -0.0 1.0"/>

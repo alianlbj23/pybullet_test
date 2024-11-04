@@ -4,3 +4,5 @@ robot_arm_interfaces.egg-info/PKG-INFO
 robot_arm_interfaces.egg-info/SOURCES.txt
 robot_arm_interfaces.egg-info/dependency_links.txt
 robot_arm_interfaces.egg-info/top_level.txt
+robot_arm_interfaces/srv/__init__.py
+robot_arm_interfaces/srv/_solve_ik.py
