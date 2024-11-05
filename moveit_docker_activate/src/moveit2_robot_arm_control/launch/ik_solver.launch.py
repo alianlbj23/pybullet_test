@@ -6,6 +6,9 @@ from ament_index_python.packages import get_package_share_directory
 import os
 import yaml
 
+config_pkg_name = 'stable_config'
+robot_description_pkg_name = "robot_description_version2"
+
 def load_yaml(package_name, file_path):
     package_path = get_package_share_directory(package_name)
     absolute_file_path = os.path.join(package_path, file_path)
@@ -19,8 +22,8 @@ def load_yaml(package_name, file_path):
 
 def generate_launch_description():
     # 獲取包的路徑
-    moveit_config_pkg = get_package_share_directory('stable_config')
-    robot_description_pkg = get_package_share_directory('robot_description_version2')
+    moveit_config_pkg = get_package_share_directory(config_pkg_name)
+    robot_description_pkg = get_package_share_directory(robot_description_pkg_name)
 
     # 加載 URDF
     robot_description_path = os.path.join(robot_description_pkg, 'urdf', 'target.urdf')
@@ -33,10 +36,10 @@ def generate_launch_description():
         robot_description_semantic = file.read()
 
     # 加載 kinematics.yaml
-    kinematics_yaml = load_yaml('stable_config', 'config/kinematics.yaml')
+    kinematics_yaml = load_yaml(config_pkg_name, 'config/kinematics.yaml')
     
     # 加載 joint_limits.yaml
-    joint_limits_yaml = load_yaml('stable_config', 'config/joint_limits.yaml')
+    joint_limits_yaml = load_yaml(config_pkg_name, 'config/joint_limits.yaml')
 
     # 設置參數
     robot_description_parameters = {
