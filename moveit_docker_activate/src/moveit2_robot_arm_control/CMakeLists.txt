@@ -12,6 +12,8 @@ find_package(moveit_core REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(robot_arm_interfaces REQUIRED)
+find_package(moveit_visual_tools REQUIRED)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -37,6 +39,8 @@ ament_target_dependencies(ik_solver
   moveit_ros_planning_interface
   robot_arm_interfaces
 )
+target_link_libraries(ik_solver moveit_visual_tools::moveit_visual_tools)
+
 
 # 安裝可執行文件
 install(TARGETS ik_solver

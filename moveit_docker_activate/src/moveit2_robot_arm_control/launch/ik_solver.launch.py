@@ -19,8 +19,8 @@ def load_yaml(package_name, file_path):
 
 def generate_launch_description():
     # 獲取包的路徑
-    moveit_config_pkg = get_package_share_directory('new_config2')
-    robot_description_pkg = get_package_share_directory('robot_description')
+    moveit_config_pkg = get_package_share_directory('stable_config')
+    robot_description_pkg = get_package_share_directory('robot_description_version2')
 
     # 加載 URDF
     robot_description_path = os.path.join(robot_description_pkg, 'urdf', 'target.urdf')
@@ -33,10 +33,10 @@ def generate_launch_description():
         robot_description_semantic = file.read()
 
     # 加載 kinematics.yaml
-    kinematics_yaml = load_yaml('new_config2', 'config/kinematics.yaml')
+    kinematics_yaml = load_yaml('stable_config', 'config/kinematics.yaml')
     
     # 加載 joint_limits.yaml
-    joint_limits_yaml = load_yaml('new_config2', 'config/joint_limits.yaml')
+    joint_limits_yaml = load_yaml('stable_config', 'config/joint_limits.yaml')
 
     # 設置參數
     robot_description_parameters = {

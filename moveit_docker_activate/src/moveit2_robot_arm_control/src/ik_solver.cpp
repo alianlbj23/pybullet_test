@@ -5,11 +5,14 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
+#include <moveit_visual_tools/moveit_visual_tools.h>  // 新增這行
 
 class IKSolver : public rclcpp::Node
 {
 public:
-    IKSolver() : Node("ik_solver")
+    IKSolver() 
+      : Node("ik_solver"), 
+        visual_tools_(this->shared_from_this(), "base_link", "/rviz_visual_tools")  // 修改這行
     {
         // 創建關節狀態發布器
         joint_state_publisher_ = this->create_publisher<sensor_msgs::msg::JointState>(
@@ -28,6 +31,10 @@ public:
         // 初始化 MoveGroup
         static const std::string PLANNING_GROUP = "arm";
         move_group_ = std::make_unique<moveit::planning_interface::MoveGroupInterface>(move_group_node_, PLANNING_GROUP);
+
+        // 初始化 visual_tools_
+        visual_tools_.deleteAllMarkers();  // 清除所有標記
+        visual_tools_.loadRemoteControl();
 
         // 打印機器人信息
         RCLCPP_INFO(this->get_logger(), "Planning frame: %s", move_group_->getPlanningFrame().c_str());
@@ -58,6 +65,10 @@ private:
         target_pose.orientation.x = 0.0;
         target_pose.orientation.y = 0.0;
         target_pose.orientation.z = 0.0;
+
+        // 使用 visual_tools_ 在 Rviz 中顯示目標位姿
+        visual_tools_.publishAxisLabeled(target_pose, "target_pose");
+        visual_tools_.trigger();  // 發送標記到 Rviz
 
         // 打印目標位姿
         RCLCPP_INFO(this->get_logger(), "Target pose:");
@@ -108,6 +119,7 @@ private:
     std::unique_ptr<std::thread> spin_thread_;
     std::unique_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_publisher_;
+    moveit_visual_tools::MoveItVisualTools visual_tools_;  // 修改後的 visual_tools_ 成員
 };
 
 int main(int argc, char** argv)
